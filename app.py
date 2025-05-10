@@ -18,6 +18,13 @@ from docx import Document
 from sentence_transformers import SentenceTransformer
 import faiss
 
+
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
+
 # Load environment variables
 from dotenv import load_dotenv
 load_dotenv()
