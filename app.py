@@ -18,6 +18,9 @@ from docx import Document
 from sentence_transformers import SentenceTransformer
 import faiss
 
+nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
+print("NLTK data path:", nltk.data.path)
+
 # Load environment variables
 from dotenv import load_dotenv
 load_dotenv()
