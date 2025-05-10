@@ -21,10 +21,6 @@ from sentence_transformers import SentenceTransformer
 import faiss
 
 
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt')
 
 
 nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
