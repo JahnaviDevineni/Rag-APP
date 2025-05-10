@@ -303,9 +303,132 @@ class MultiAgentAssistant:
         return result
 
 def create_sample_documents() -> Dict[str, str]:
-    # Keep your existing sample documents
-    # ... (same as before)
-
+    """Create sample documents for demo purposes."""
+    sample_docs = {
+        "rag_overview.txt": """
+        Retrieval-Augmented Generation (RAG) combines retrieval mechanisms with text generation capabilities of large language models.
+        
+        RAG works by first retrieving relevant documents or passages from a corpus based on a query, and then using these retrieved texts as additional context for the language model to generate a response.
+        
+        The key advantages of RAG include:
+        1. Access to specialized knowledge not present in the LLM's training data
+        2. Ability to cite sources and provide evidence for generated content
+        3. Reduction in hallucinations (making up facts) by grounding responses in retrieved content
+        4. More up-to-date information if the retrieval corpus is regularly updated
+        
+        The typical RAG pipeline involves:
+        - Indexing: Converting documents into embeddings and storing them in a vector database
+        - Retrieval: Finding the most relevant documents based on semantic similarity to the query
+        - Generation: Using the retrieved documents as context for the language model to generate an answer
+        
+        Common challenges in RAG systems include ensuring retrieval quality, handling different types of queries appropriately, and balancing retrieved context with model knowledge.
+        """,
+        
+        "llm_fundamentals.txt": """
+        Large Language Models (LLMs) are a type of artificial intelligence model designed to understand and generate human language. They're trained on vast amounts of text data from the internet, books, articles, and other sources.
+        
+        LLMs work based on the Transformer architecture, which uses attention mechanisms to process text. During training, these models learn patterns in language by predicting missing words or next words in sequences.
+        
+        Key capabilities of modern LLMs include:
+        - Text generation in various styles and formats
+        - Question answering based on their training data
+        - Summarization of long documents
+        - Translation between languages
+        - Code generation and understanding
+        
+        Popular LLMs include GPT models from OpenAI, Claude from Anthropic, LLaMA models from Meta, and various open-source alternatives.
+        
+        LLMs have limitations including potential for generating false information (hallucinations), reflecting biases present in training data, and an inability to access real-time information beyond their training cutoff.
+        
+        The field is rapidly evolving with improvements in model size, training techniques, and capabilities with each new generation of models.
+        """,
+        
+        "vector_databases.txt": """
+        Vector databases are specialized database systems designed to store and query vector embeddings efficiently. These embeddings are numerical representations of data (such as text, images, or audio) in a high-dimensional space.
+        
+        The core functionality of vector databases is similarity search - finding vectors that are close to a query vector according to distance metrics like cosine similarity or Euclidean distance.
+        
+        Popular vector database technologies include:
+        
+        - FAISS (Facebook AI Similarity Search): A library developed by Facebook Research for efficient similarity search and clustering of dense vectors. It contains algorithms that search in sets of vectors of any size, even ones that would not fit in RAM.
+        
+        - Pinecone: A fully-managed vector database service that makes it easy to build high-performance vector search applications. It handles the infrastructure and scaling automatically.
+        
+        - Weaviate: An open-source vector search engine that allows you to store objects and vector embeddings from various ML models and create semantic relations between them.
+        
+        - Chroma: A lightweight embedding database that makes it easy to build LLM apps with knowledge grounding.
+        
+        - Milvus: An open-source vector database built to power embedding similarity search and AI applications.
+        
+        Vector databases typically support features like:
+        - Approximate Nearest Neighbor (ANN) search algorithms
+        - Filtering capabilities to combine metadata and vector searches
+        - Clustering and indexing methods to speed up retrieval
+        - Horizontal scaling to handle large embedding collections
+        
+        They are fundamental components in modern AI applications, particularly in retrieval-augmented generation systems.
+        """,
+        
+        "prompt_engineering.txt": """
+        Prompt engineering is the practice of designing and optimizing inputs to language models to elicit desired outputs. It has become an essential skill for effectively working with large language models.
+        
+        Key techniques in prompt engineering include:
+        
+        1. Zero-shot prompting: Asking the model to perform a task without examples.
+           Example: "Translate the following English text to French: 'Hello, how are you?'"
+        
+        2. Few-shot prompting: Providing the model with a few examples of the desired input-output behavior.
+           Example: "English: Hello, French: Bonjour. English: Good morning, French: Bon matin. English: Thank you, French: ?"
+        
+        3. Chain-of-thought prompting: Asking the model to explain its reasoning step by step.
+           Example: "What is 17 x 24? Let's solve this step by step."
+        
+        4. Role prompting: Giving the model a specific role or persona to assume.
+           Example: "You are an expert mathematician specializing in calculus. Explain the concept of derivatives."
+        
+        5. Structured output prompting: Requesting responses in specific formats like JSON or CSV.
+           Example: "List three capital cities and their countries in JSON format."
+        
+        Effective prompt engineering requires understanding the model's capabilities and limitations, being specific and clear in instructions, and iteratively refining prompts based on the model's responses.
+        
+        Common challenges include prompt injection attacks, handling ambiguous requests, and ensuring consistent output formats across different inputs.
+        """,
+        
+        "multi_agent_systems.txt": """
+        Multi-agent systems in AI refer to frameworks where multiple AI agents collaborate to solve complex problems. Each agent typically has specialized capabilities and knowledge, and they work together through coordination mechanisms.
+        
+        The key components of multi-agent systems include:
+        
+        1. Agent specialization: Different agents focus on different tasks or domains, such as:
+           - Information retrieval agents
+           - Calculation and reasoning agents
+           - Planning and strategy agents
+           - Code generation and execution agents
+        
+        2. Coordination frameworks: Mechanisms that enable agents to share information and delegate tasks, including:
+           - Centralized controllers that dispatch tasks
+           - Message-passing protocols between agents
+           - Shared memory systems
+           - Market-based mechanisms where agents bid for tasks
+        
+        3. Memory systems: Shared repositories that allow agents to store and access:
+           - Task histories and outcomes
+           - Relevant context from previous interactions
+           - Intermediate results and reasoning steps
+        
+        Advantages of multi-agent approaches include:
+        - Breaking down complex problems into manageable subproblems
+        - Leveraging specialized capabilities for different aspects of a task
+        - Improved robustness through redundancy and cross-validation
+        - More transparent reasoning through explicit agent interactions
+        
+        Challenges include ensuring effective communication between agents, resolving conflicts when agents disagree, and managing the increased complexity of the overall system.
+        
+        Real-world applications include AutoGPT, BabyAGI, LangChain Agents, and systems where LLMs act as agents with access to tools and APIs.
+        """
+    }
+    
+    return sample_docs
 def setup_streamlit_app():
     st.set_page_config(page_title="Multi-Agent Knowledge Assistant", layout="wide")
     st.title("Multi-Agent Knowledge Assistant")
