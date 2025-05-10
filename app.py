@@ -8,6 +8,8 @@ import streamlit as st
 from typing import List, Dict, Any, Optional, Tuple
 from datetime import datetime
 import google.generativeai as genai
+import torch
+torch.classes.__path__ = []
 
 # For document processing and chunking
 from nltk.tokenize import sent_tokenize
