@@ -2,11 +2,21 @@ import os
 import re
 import math
 import nltk
-nltk.download("punkt") 
+nltk.download("punkt_tab") 
 import numpy as np
 import streamlit as st
 from typing import List, Dict, Any, Optional, Tuple
 from datetime import datetime
+
+# For document processing and chunking
+from nltk.tokenize import sent_tokenize
+import PyPDF2
+from docx import Document
+
+# For embeddings and vector store
+from sentence_transformers import SentenceTransformer
+import faiss
+
 import google.generativeai as genai
 
 # For document processing and chunking
@@ -18,6 +28,7 @@ from docx import Document
 from sentence_transformers import SentenceTransformer
 import faiss
 
+# Download required NLTK data
 nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
 print("NLTK data path:", nltk.data.path)
 
