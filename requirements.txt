@@ -1,9 +1,8 @@
-nltk
-numpy
-streamlit
-sentence-transformers
-faiss-cpu
-PyPDF2
-python-docx
-python-dotenv
-google-generativeai
+streamlit>=1.30
+python-dotenv>=1.0
+nltk>=3.8
+pypdf2>=3.0
+python-docx>=0.8
+sentence-transformers>=2.2
+faiss-cpu>=1.7
+google-generativeai>=0.3
