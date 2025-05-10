@@ -37,7 +37,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configure Gemini
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
 genai.configure(api_key=GOOGLE_API_KEY)
 class TextChunk:
     """Represents a chunk of text from a document."""
