@@ -1,0 +1,10 @@
+nltk
+numpy
+streamlit
+sentence-transformers
+faiss-cpu
+PyPDF2
+python-docx
+python-dotenv
+googlegen
+google-generativeai
