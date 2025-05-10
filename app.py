@@ -4,6 +4,8 @@ import re
 import math
 import nltk
 import numpy as np
+import torch
+torch.classes.__path__ = []
 import streamlit as st
 from typing import List, Dict, Any
 from datetime import datetime
@@ -492,4 +494,4 @@ def setup_streamlit_app():
             st.sidebar.caption(f"{entry['query']} ({entry['tool_used']})")
 
 if __name__ == "__main__":
-    setup_streamlit_app()
+    main()
